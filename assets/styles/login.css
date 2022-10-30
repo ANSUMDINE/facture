@@ -1,0 +1,19 @@
+body {
+    background-color: #985717;
+    color: #fff;
+}
+
+.formulaire {
+    display: block;
+    min-width: 120px;
+    justify-content: left;
+    margin: 0.5rem;
+    padding: 250px 430px
+}
+
+.bouton {
+    min-width: 120px;
+    text-align: center;
+    background-color: #1ABC9C;
+    color: #fff;
+}

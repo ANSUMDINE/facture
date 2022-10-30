@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+ {% block stylesheets %}
+ {{ encore_entry_link_tags('welcome') }}
+{% endblock %}
+{% block javascripts %}
+ {{ encore_entry_script_tags('welcome') }}
+ {% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <ul class="menu">
+        <li>
+            <a href="{{path('app_home')}}" class="actif"> Accueil</a>
+        </li>
+        <li>
+            <a href="{{path('profile')}}"> Mon profil</a>
+        </li>
+        <li>
+            <a href="{{path('clients_create')}}"> Inscription</a>
+        </li>
+    </ul>
+    {% for product in products %}
+        <div class="product-item">
+            <span>{{product.name}}</span> <br>
+            <span>{{product.price}}</span> <br>
+            <span>{{product.description}}</span> <br>
+            <button class="btn btn-primary">Ajouter au panier</button>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('clientCreate') }}
+    {% endblock %}
+
+{% block title %}Mise à jour{% endblock %}
+
+{% block body %}
+    <div id="add-form-clients" class="p-5 mb-2 mx-auto bg-success text-white w-75">
+        <form method="post">
+            <input type="text" name="name" class="form-control" placeholder="Nom" value="{{client.user.name}}">
+            <input type="text" name="prenom" class="form-control" placeholder="Prénom" value="{{client.user.prenom}}">
+            <input type="email" name="email" class="form-control" placeholder="E-mail" value="{{client.user.email}}">
+            <input type="text" name="adress" class="form-control" placeholder="Adresse" value="{{client.adress}}">
+            <input type="text" name="tel" class="form-control" placeholder="Téléphone" value="{{client.user.tel}}">
+            {% if message %}
+                <p>{{message}}</p>
+            {% endif %}
+            <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+            <input type="password" name="confirm_password" class="form-control" placeholder="Confirmer le mot de passe">
+            <input type="submit" class="btn btn-success" value="Envoyer">
+        </form>
+    </div>
+    <a href="{{path('profile')}}"> Retour à mon profil</a><br>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('clientCreate') }}
+    {% endblock %}
+{% endblock %}

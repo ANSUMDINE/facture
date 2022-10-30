@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('clientCreate') }}
+    {% endblock %}
+
+{% block title %}Mise à jour des produit{% endblock %}
+
+{% block body %}
+    <div id="add-form-clients" class="p-5 mb-2 mx-auto bg-success text-white w-75">
+    {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.price) }}
+    {{ form_end(form) }}
+    </div>
+    <a href="{{path('admin_product')}}"> Retour au produit</a><br>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('clientCreate') }}
+    {% endblock %}
+{% endblock %}

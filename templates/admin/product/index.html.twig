@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('product') }}
+    {% endblock %}
+
+{% block title %}Produits{% endblock %}
+
+{% block body %}
+    <table class="text-center">
+        <tr>
+            <th scope="col">Nom du produit</th>
+            <th scope="col">Description du produit</th>
+            <th scope="col">Prix du produit</th>
+            <th scope="col", colspan="2">Actions</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.description}}</td> 
+                <td>{{product.price}}</td> 
+                <td class="delete"><a href="{{path('admin_product_delete', {id: product.id})}}">Supprimer</a></td>
+                <td class="update"><a href="{{path('admin_product_update', {id: product.id})}}">Modifier</a></td>
+               
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="add_product">
+        <a href="{{path('admin_product_create')}}"> Ajouter un produit</a>
+    </div>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('product') }}
+    {% endblock %}
+
+{% endblock %}

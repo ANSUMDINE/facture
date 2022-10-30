@@ -1,0 +1,32 @@
+body {
+    background-color: #985717;
+}
+
+body a {
+    display: block;
+    /* Transformation en block */
+    width: 220px;
+    /* Largeur minimal des liens */
+    margin: 0.5rem;
+    /* marge externe (1 valeurs = 4 direction )*/
+    padding: 0px 1px;
+    /* Marge interne (2 valeurs = haut/bas et gauche/droite */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #1ABC9C;
+    color: #fff;
+    text-decoration: none;
+    /* suppression du soulignement */
+    border: 1px solid #fff;
+    border-radius: 4px;
+    /* Arrondis des bordures */
+    transition: all 1s;
+    /* Ajout des effets de transition */
+}
+
+body a:hover {
+    background-color: #ed2794;
+    color: #ffe843;
+    border-color: #ffe843;
+}

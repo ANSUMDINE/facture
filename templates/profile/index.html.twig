@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('profile') }}
+    {% endblock %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+{% set fileName = 'default.png' %}
+{% if client.picture  %}
+    {% set fileName = client.picture %}
+{% endif %}
+<h1>Profil</h1>
+<div class="image">
+    <i class="fa-solid fa-camera" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+    <div class="picture" style=" background-image: url('{{ asset("images/profile/" ~ fileName ~ "") }}');"></div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Changer la photo de profil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="{{path('profile_update_picture')}}" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+            <input type="file" name="picture" class="form-control" required>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<span>Nom : {{client.user.name}}</span> <br>
+<span>Prénom : {{client.user.prenom}}</span> <br>
+<span>Adresse : {{client.adress}}</span> <br>
+<span>Email : {{client.user.email}}</span> <br>
+<a href="{{path('profile_update', {id: client.id})}}">
+    <button type="button" class="btn btn-outline-primary"> Mettre à jour mon profile</button>
+</a>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('profile') }}
+{% endblock %}
+{% endblock %}
